@@ -49,7 +49,7 @@ export default function SignInForm() {
 					name="name"
 					onChange={(e) => setInputName(e.target.value)}
 					id="name"
-					className="h-[32px] rounded-lg border border-black indent-3 outline outline-1"
+					className="form-input text-placeholderText"
 					placeholder="John Doe"
 				/>
 				<button
