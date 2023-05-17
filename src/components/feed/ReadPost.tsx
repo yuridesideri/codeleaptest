@@ -1,6 +1,6 @@
-import trashDeleteIcon from "../../assets/trashDeleteIcon.svg";
 import editIcon from "../../assets/editIcon.svg";
 import dayjs from "dayjs";
+import DeletePost from "./DeletePost";
 
 interface ReadPostProps {
 	loggedUser: string;
@@ -19,20 +19,14 @@ export default function ReadPost({
 	title,
 	id,
 }: ReadPostProps) {
-
-	
 	return (
-		<div className="mb-[12px] mt-[12px] flex min-h-[316px] max-w-[752px] w-full flex-col justify-between">
+		<div className="mb-[12px] mt-[12px] flex min-h-[316px] w-full max-w-[752px] flex-col justify-between">
 			<header className="flex justify-between rounded-tl-[16px] rounded-tr-[16px] bg-primary p-[24px] ">
 				<h1 className="font-bold text-darkTextColor">{title}</h1>
-				<div className="flex gap-[34px]">
+				<div className="flex gap-[23px]">
 					{loggedUser === postUser && (
 						<>
-							<img
-								className="cursor-pointer hover:scale-105"
-								src={trashDeleteIcon}
-								alt="Delete"
-							/>
+							<DeletePost postId={id} />
 							<img
 								className="cursor-pointer hover:scale-105"
 								src={editIcon}

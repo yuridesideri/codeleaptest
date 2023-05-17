@@ -56,7 +56,7 @@ export default function Home() {
 		<div className="absolute min-h-screen w-full bg-backgroundLight">
 			<header className="sticky left-0 right-0 top-0 ml-auto mr-auto mt-0 flex h-[80px] max-w-[800px] items-center justify-between bg-primary shadow-xl drop-shadow-lg">
 				<h1
-					onClick={(e) => location.reload()}
+					onClick={() => location.reload()}
 					className="ml-[37px] cursor-pointer text-[22px] font-bold text-white hover:scale-105"
 				>
 					CodeLeap Network
@@ -69,6 +69,7 @@ export default function Home() {
 					postsArray.length !== 0 &&
 					postsArray.map((post) => (
 						<ReadPost
+							key={post.id}
 							{...{
 								...post,
 								loggedUser: user.name!,
@@ -77,7 +78,7 @@ export default function Home() {
 						/>
 					))}
 			</main>
-			<footer></footer>
+		<footer></footer>
 		</div>
 	);
 }

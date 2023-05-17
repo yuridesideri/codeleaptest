@@ -1,8 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useUserData } from "../../contexts/UserContext";
-import { ColorRing } from "react-loader-spinner";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useTheme } from "../../contexts/ThemeContext";
 import StyledButton from "../sharedComponents/StyledButton";
 
@@ -87,6 +86,7 @@ export default function CreatePost() {
 				>
 					Create
 				</StyledButton>
+				<ToastContainer />
 			</form>
 		</div>
 	);

@@ -15,7 +15,7 @@ export default function SignOut() {
 	return (
 		<div
 			onClick={handleSignOut}
-			className="mr-[37px] aspect-square w-[23px] cursor-pointer fill-red text-rose-500 hover:scale-105"
+			className="mr-[37px] aspect-square w-[23px] cursor-pointer fill-red text-rose-400 hover:scale-105"
 		>
 			<GoSignOut className="h-full w-full" alt="log out icon" />
 		</div>

@@ -19,8 +19,13 @@ export default {
 				primaryDark: "#7695EC",
 				red: "#FF0000",
 				green: "#00FF00",
-				modal: "[rgba(119, 119, 119, 0.8)]",
-				darkModal: " [rgba(34, 34, 34, 0.8)]",
+				modal: "rgba(119, 119, 119, 0.8)",
+				darkModal: "rgba(34, 34, 34, 0.8)",
+				 extend: {
+      colors: {
+        'black-rgba': 'rgba(0, 0, 0, 0.54)',
+      },
+    },
 			},
 		},
 		variants: {

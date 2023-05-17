@@ -6,13 +6,16 @@ import ThemeProvider from "./contexts/ThemeContext";
 
 function App() {
 	return (
-		<div className="App h-screen w-full">
+		<div id="App" className="relative h-screen w-full">
 			<ThemeProvider>
 				<UserProvider>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/sign-in" element={<SignIn />} />
 					</Routes>
+					<div
+						id="modal"
+					></div>
 				</UserProvider>
 			</ThemeProvider>
 		</div>

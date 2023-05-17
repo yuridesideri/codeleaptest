@@ -23,6 +23,17 @@ export default function SignInForm() {
 				throw new Error("No name provided");
 			}
 			setUser!({ name: inputName });
+			setTimeout(() => {
+				toast.success("Welcome, " + inputName + "!", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: false,
+					draggable: false,
+					theme,
+				});
+			}, 300);
 			navigate("/");
 		} catch (err: any) {
 			if (err.message === "No name provided")
