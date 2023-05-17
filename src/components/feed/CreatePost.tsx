@@ -3,11 +3,14 @@ import { useUserData } from "../../contexts/UserContext";
 import { ColorRing } from "react-loader-spinner";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useTheme } from "../../contexts/ThemeContext";
+import StyledButton from "../sharedComponents/StyledButton";
 
 export default function CreatePost() {
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const [loading, setLoading] = useState(false);
+	const { theme } = useTheme();
 	const { user } = useUserData();
 
 	function handleCreate(e: FormEvent<HTMLFormElement>): void {
@@ -20,12 +23,29 @@ export default function CreatePost() {
 		};
 		try {
 			axios.post("https://dev.codeleap.co.uk/careers/", data).then(() => {
-				toast.success("Post created");
+				toast.success("Success in creating your post", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme,
+				});
 				location.reload();
 			});
 		} catch (err) {
-			console.log("probl");
-			toast.error("Error creating post");
+			toast.error("Error creating post", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: true,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme,
+			});
 		} finally {
 			setLoading(false);
 		}
@@ -34,7 +54,7 @@ export default function CreatePost() {
 	return (
 		<div
 			id="post-container"
-			className="mb-[12px] flex min-h-[334px] w-[752px] rounded-2xl border border-solid border-borderColor p-[24px]"
+			className="mb-[12px] flex min-h-[334px] w-full max-w-[752px] rounded-2xl border border-solid border-borderColor p-[24px]"
 		>
 			<form
 				className="flex min-h-max w-full flex-col justify-between"
@@ -60,32 +80,13 @@ export default function CreatePost() {
 						className="h-[74px] resize-none rounded-lg border border-black pl-3 pt-2 leading-4 outline outline-1 transition-all duration-200 ease-in-out placeholder:text-placeholderText"
 					/>
 				</div>
-				<button
-					type="submit"
-					className="mt-4 flex h-8 w-[120px] items-center justify-center self-end bg-primary text-base font-bold text-white transition-all duration-200 ease-in-out hover:scale-105"
+				<StyledButton
+					loading={loading}
+					disabled={content === "" || title === ""}
+					className="w-[120px]"
 				>
-					{loading ? (
-						<ColorRing
-							visible={true}
-							height="40"
-							width="40"
-							ariaLabel="blocks-loading"
-							wrapperStyle={{}}
-							wrapperClass="blocks-wrapper"
-							colors={
-								new Array(5).fill("#ffffff") as [
-									string,
-									string,
-									string,
-									string,
-									string
-								]
-							}
-						/>
-					) : (
-						"Create"
-					)}
-				</button>
+					Create
+				</StyledButton>
 			</form>
 		</div>
 	);

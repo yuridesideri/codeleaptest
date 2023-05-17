@@ -4,32 +4,41 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTheme } from "../../contexts/ThemeContext";
+import StyledButton from "../sharedComponents/StyledButton";
 
 export default function SignInForm() {
 	const [inputName, setInputName] = useState<string>("");
 	const { user, setUser } = useUserData();
 	const navigate = useNavigate();
 	const { theme } = useTheme();
+	const [loading, setLoading] = useState<boolean>(false);
 
 	console.log("Logged as:", user?.name);
 
 	function handleSubmit(e: FormEvent): void {
 		e.preventDefault();
-		if (!inputName || inputName === "") {
-			toast.error("Please enter an awesome name!!", {
-				position: "top-right",
-				autoClose: 3000,
-				hideProgressBar: true,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme,
-			});
-			return;
+		setLoading(true);
+		try {
+			if (!inputName || inputName === "") {
+				throw new Error("No name provided");
+			}
+			setUser!({ name: inputName });
+			navigate("/");
+		} catch (err: any) {
+			if (err.message === "No name provided")
+				toast.error("Please enter an awesome name!!", {
+					position: "top-right",
+					autoClose: 3000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme,
+				});
+		} finally {
+			setLoading(false);
 		}
-		setUser!({ name: inputName });
-		navigate("/");
 	}
 
 	return (
@@ -49,17 +58,19 @@ export default function SignInForm() {
 					name="name"
 					onChange={(e) => setInputName(e.target.value)}
 					id="name"
-					className="form-input text-placeholderText"
+					className="form-input placeholder:text-placeholderText"
 					placeholder="John Doe"
 				/>
-				<button
-					type="submit"
-					className={`mt-4 flex h-8 w-[111px] items-center justify-center self-end  text-base font-bold text-white transition-all duration-200 ease-in-out hover:scale-105 ${
-						inputName === "" ? "bg-gray-500" : "bg-primary"
-					}`}
+				<StyledButton
+					{...{
+						loading,
+						className: `${
+							inputName === "" ? "bg-gray-500" : "bg-primary"
+						}`,
+					}}
 				>
 					Enter
-				</button>
+				</StyledButton>
 				<ToastContainer />
 			</form>
 		</div>

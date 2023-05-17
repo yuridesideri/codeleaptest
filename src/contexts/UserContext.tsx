@@ -18,11 +18,16 @@ export default function UserProvider({
 	children: React.ReactNode;
 }) {
 	const [user, setUser] = useState<userData>({
-		name: localStorage.getItem("name") || undefined,
+		name: localStorage.getItem("username") || undefined,
 	});
 
 	useEffect(() => {
-		localStorage.setItem("name", user.name!);
+		if (user.name) {
+			console.log(user.name);
+			localStorage.setItem("username", user.name);
+		} else {
+			localStorage.removeItem("username");
+		}
 	}, [user]);
 
 	return (
