@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useUserData } from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import CreatePost from "../components/feed/CreatePost";
+import ReadPost from "../components/feed/ReadPost";
 
 export default function Home() {
 	const { user } = useUserData();
@@ -18,9 +19,11 @@ export default function Home() {
 					CodeLeap Network
 				</h1>
 			</header>
-			<main className="m-auto flex min-h-screen w-[800px] flex-col bg-mainContentBackground p-[24px] pt-[104px] items-center">
+			<main className="m-auto flex min-h-screen w-[800px] flex-col items-center bg-mainContentBackground p-[24px] pt-[104px]">
 				<CreatePost />
+				<ReadPost />
 			</main>
+			<footer></footer>
 		</div>
 	);
 }
