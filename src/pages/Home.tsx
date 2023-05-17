@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useTheme } from "../contexts/ThemeContext";
 import SignOut from "../components/authComponents/SignOut";
+import Header from "../components/header/Header";
 
 export default function Home() {
 	const { user } = useUserData() as { user: userData };
@@ -53,17 +54,10 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div className="absolute min-h-screen w-full bg-backgroundLight">
-			<header className="sticky left-0 right-0 top-0 ml-auto mr-auto mt-0 flex h-[80px] max-w-[800px] items-center justify-between bg-primary shadow-xl drop-shadow-lg">
-				<h1
-					onClick={() => location.reload()}
-					className="ml-[37px] cursor-pointer text-[22px] font-bold text-white hover:scale-105"
-				>
-					CodeLeap Network
-				</h1>
-				<SignOut />
-			</header>
-			<main className="m-auto flex min-h-screen max-w-[800px] flex-col items-center bg-mainContentBackground p-[24px] pt-[24px]">
+		<div className="absolute min-h-screen w-full bg-backgroundLight dark:bg-backgroundDark">
+			<Header />
+
+			<main className="m-auto flex min-h-screen max-w-[800px] flex-col items-center bg-mainContentBackground dark:bg-mainContentBackgroundDark p-[24px] pt-[24px]">
 				<CreatePost />
 				{!loadingPosts &&
 					postsArray.length !== 0 &&
@@ -78,7 +72,7 @@ export default function Home() {
 						/>
 					))}
 			</main>
-		<footer></footer>
+			<footer></footer>
 		</div>
 	);
 }

@@ -59,12 +59,12 @@ export default function CreatePost() {
 				className="flex min-h-max w-full flex-col justify-between"
 				onSubmit={handleCreate}
 			>
-				<h1 className="text-[22px] font-bold">What's on your mind?</h1>
+				<h1 className="text-[22px] font-bold dark:text-white">What's on your mind?</h1>
 				<div className="flex flex-col">
 					<label>Title</label>
 					<input
 						placeholder="Hello World"
-						className="form-input placeholder:text-placeholderText"
+						className="form-input placeholder:text-placeholderText dark:placeholder:text-placeholderTextDark"
 						type="text"
 						name="title"
 						id="title"
@@ -76,7 +76,7 @@ export default function CreatePost() {
 					<textarea
 						onChange={(e) => setContent(e.target.value)}
 						placeholder="Content here"
-						className="h-[74px] resize-none rounded-lg border border-black pl-3 pt-2 leading-4 outline outline-1 transition-all duration-200 ease-in-out placeholder:text-placeholderText"
+						className="h-[74px] resize-none rounded-lg border border-black pl-3 pt-2 leading-4 outline outline-1 placeholder:text-placeholderText dark:placeholder:text-placeholderTextDark"
 					/>
 				</div>
 				<StyledButton

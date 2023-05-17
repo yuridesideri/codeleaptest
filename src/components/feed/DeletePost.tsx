@@ -58,9 +58,9 @@ export default function DeletePost({ postId }: { postId: number }) {
 					<Modal closeModal={() => setShowModal(false)}>
 						<div
 							className="top-0 flex h-[146px] w-full max-w-[660px] flex-col justify-between rounded-[16px] border border-solid
-						border-borderColor bg-mainContentBackground p-6"
+						border-borderColor bg-mainContentBackground dark:bg-mainContentBackgroundDark p-6"
 						>
-							<h1 className="font-bold">
+							<h1 className="font-bold dark:text-white">
 								Are you sure you want to delete this item?
 							</h1>
 							<div className="buttons flex gap-4 self-end">
@@ -72,7 +72,7 @@ export default function DeletePost({ postId }: { postId: number }) {
 								</button>
 								<button
 									onClick={() => handlePostDelete()}
-									className="flex h-[32px] w-[120px] items-center justify-center rounded-[8px] border bg-[#FF5151] font-bold text-white hover:scale-105 transition-all duration-200"
+									className="flex h-[32px] w-[120px] items-center justify-center rounded-[8px] border bg-[#FF5151] font-bold text-white dark:text-black hover:scale-105 transition-all duration-200"
 								>
 									Delete
 								</button>

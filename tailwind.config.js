@@ -11,6 +11,7 @@ export default {
 				mainContentBackgroundDark: "#333333",
 				commentText: "#777777",
 				placeholderText: "#CCCCCC",
+				placeholderTextDark: "#666666",
 				borderColor: "#999999",
 				darkCommentText: "#AAAAAA",
 				darkTextColor: "#FFFFFF",

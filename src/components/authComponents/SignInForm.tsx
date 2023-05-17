@@ -68,7 +68,7 @@ export default function SignInForm() {
 					name="name"
 					onChange={(e) => setInputName(e.target.value)}
 					id="name"
-					className="form-input placeholder:text-placeholderText mb-4"
+					className="form-input placeholder:text-placeholderText dark:placeholder:text-placeholderTextDark mb-4"
 					placeholder="John Doe"
 				/>
 				<StyledButton

@@ -45,7 +45,7 @@ button {
 	transition: border-color 0.25s;
 }
 
-p{
+p {
 	font-size: 18px;
 }
 /* //enter tailwind into css .form-input*/
@@ -59,4 +59,15 @@ p{
 	font-weight: 400;
 	font-family: inherit;
 	transition: border-color 0.25s;
+	@apply dark:bg-mainContentBackgroundDark;
+	@apply dark:text-white;
+}
+
+textarea {
+	@apply dark:bg-mainContentBackgroundDark;
+	@apply dark:text-white;
+}
+
+label {
+	@apply dark:text-white;
 }
