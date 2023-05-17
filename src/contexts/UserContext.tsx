@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export interface userData {
 	id?: number;
@@ -20,6 +20,10 @@ export default function UserProvider({
 	const [user, setUser] = useState<userData>({
 		name: localStorage.getItem("name") || undefined,
 	});
+
+	useEffect(() => {
+		localStorage.setItem("name", user.name!);
+	}, [user]);
 
 	return (
 		<UserContext.Provider value={{ user, setUser }}>
