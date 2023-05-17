@@ -27,7 +27,6 @@ export default function SignInForm() {
 				toast.success("Welcome, " + inputName + "!", {
 					position: "top-right",
 					autoClose: 3000,
-					hideProgressBar: true,
 					closeOnClick: true,
 					pauseOnHover: false,
 					draggable: false,
@@ -69,7 +68,7 @@ export default function SignInForm() {
 					name="name"
 					onChange={(e) => setInputName(e.target.value)}
 					id="name"
-					className="form-input placeholder:text-placeholderText"
+					className="form-input placeholder:text-placeholderText mb-4"
 					placeholder="John Doe"
 				/>
 				<StyledButton

@@ -18,7 +18,7 @@ export default {
 				primary: "#7695EC",
 				primaryDark: "#7695EC",
 				red: "#FF0000",
-				green: "#00FF00",
+				green: "#47B960",
 				modal: "rgba(119, 119, 119, 0.8)",
 				darkModal: "rgba(34, 34, 34, 0.8)",
 				 extend: {

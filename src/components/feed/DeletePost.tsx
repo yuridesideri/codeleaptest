@@ -66,13 +66,13 @@ export default function DeletePost({ postId }: { postId: number }) {
 							<div className="buttons flex gap-4 self-end">
 								<button
 									onClick={() => setShowModal(false)}
-									className="flex h-[32px] w-[120px] items-center justify-center rounded-[8px] border border-solid border-borderColor bg-white font-bold text-black"
+									className="flex h-[32px] w-[120px] items-center justify-center rounded-[8px] border border-solid border-borderColor bg-white font-bold text-black hover:scale-105 transition-all duration-200"
 								>
 									Cancel
 								</button>
 								<button
 									onClick={() => handlePostDelete()}
-									className="flex h-[32px] w-[120px] items-center justify-center rounded-[8px] border bg-[#FF5151] font-bold text-white"
+									className="flex h-[32px] w-[120px] items-center justify-center rounded-[8px] border bg-[#FF5151] font-bold text-white hover:scale-105 transition-all duration-200"
 								>
 									Delete
 								</button>

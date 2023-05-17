@@ -16,18 +16,18 @@ export default function StyledButton({
 	onClick = () => {},
 	children,
 	className,
-	backgroundColor = "primary",
+	backgroundColor = "bg-primary",
 	loading = false,
 	loadingColor = "#ffffff",
 	disabled = false,
-	disabledColor = "gray-500",
+	disabledColor = "bg-gray-500",
 }: StyledButtonProps) {
 	return (
 		<button
 			onClick={onClick}
 			type="submit"
-			className={`mt-4 flex h-8 w-[111px] items-center justify-center self-end text-base font-bold text-white transition-all duration-200 ease-in-out hover:scale-105 ${
-				disabled ? "bg-" + disabledColor : "bg-" + backgroundColor
+			className={`flex h-8 w-[111px] items-center justify-center self-end text-base font-bold text-white transition-all duration-200 ease-in-out hover:scale-105 ${
+				!disabled ? `${backgroundColor}` :  disabledColor
 			}
             ${className}
             `}

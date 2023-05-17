@@ -1,6 +1,7 @@
 import editIcon from "../../assets/editIcon.svg";
 import dayjs from "dayjs";
 import DeletePost from "./DeletePost";
+import EditPost from "./EditPost";
 
 interface ReadPostProps {
 	loggedUser: string;
@@ -27,11 +28,7 @@ export default function ReadPost({
 					{loggedUser === postUser && (
 						<>
 							<DeletePost postId={id} />
-							<img
-								className="cursor-pointer hover:scale-105"
-								src={editIcon}
-								alt="Edit"
-							/>
+							<EditPost postId={id} />
 						</>
 					)}
 				</div>
